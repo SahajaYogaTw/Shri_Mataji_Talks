@@ -24,11 +24,20 @@ if(daily&&articleData){
   }catch{}
 }
 const search=document.querySelector("#search");
-if(search)search.addEventListener("input",()=>{
+const topics=document.querySelector("#topic-grid");
+const results=document.querySelector(".search-results");
+const count=document.querySelector("#search-count");
+const empty=document.querySelector(".empty");
+const backTopics=document.querySelector("#back-topics");
+function updateSearch(){
   const q=search.value.trim().toLowerCase();let shown=0;
-  const results=document.querySelector(".search-results");
   document.querySelectorAll(".search-results .article-link").forEach(link=>{const ok=!!q&&link.dataset.search.includes(q);link.hidden=!ok;if(ok)shown++;});
   if(results)results.classList.toggle("active",!!q);
-  const empty=document.querySelector(".empty");if(empty)empty.style.display=q&&!shown?"block":"none";
-});
+  if(topics)topics.hidden=!!q;
+  if(daily)daily.hidden=!!q||!daily.href||daily.getAttribute("href")==="#";
+  if(count)count.textContent="找到 "+shown+" 篇文章";
+  if(empty)empty.style.display=q&&!shown?"block":"none";
+}
+if(search)search.addEventListener("input",updateSearch);
+if(backTopics)backTopics.addEventListener("click",()=>{search.value="";updateSearch();search.focus();window.scrollTo({top:0,behavior:"smooth"});});
 if("serviceWorker" in navigator)window.addEventListener("load",()=>{const nested=location.pathname.includes("/articles/")||location.pathname.includes("/categories/");navigator.serviceWorker.register(nested?"../sw.js":"./sw.js").catch(()=>{});});
