@@ -1,9 +1,0 @@
-{
-  "name": "錫呂瑪塔吉演講節錄",
-  "short_name": "演講節錄",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#fbf7ed",
-  "theme_color": "#17383b",
-  "lang": "zh-Hant"
-}
