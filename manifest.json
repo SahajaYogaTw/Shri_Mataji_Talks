@@ -1,0 +1,14 @@
+{
+  "name": "錫呂瑪塔吉演講節錄・初階版（電子書閱讀版）",
+  "short_name": "演講節錄・電子書",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F9FAF6",
+  "theme_color": "#7E9470",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
