@@ -427,9 +427,12 @@
     border-radius:2px;
   }
   .hl-colorbar{
-    position:sticky;
+    position:fixed;
     top:53px;
-    left:0; right:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:100%;
+    max-width:640px;
     z-index:60;
     display:none;
     align-items:center;
